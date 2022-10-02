@@ -16,10 +16,10 @@ export default async function custom(
 
     switch (query) {
       case 1:
-        sql = Prisma.sql`Select * from user_details where "last_name" = "john";`;
+        sql = Prisma.sql`Select * from user_details where "last_name" = "john" limit 100;`;
         break;
       case 2:
-        sql = Prisma.sql`Select * from user_details where first_name = "john";`;
+        sql = Prisma.sql`Select * from user_details where first_name = "john" limit 100;`;
         break;
       case 3:
         sql = Prisma.sql`Select * from user_details limit 5`;
@@ -29,7 +29,7 @@ export default async function custom(
         break;
 
       default:
-        sql = Prisma.sql`Select * from user_details limit 2000;`;
+        sql = Prisma.sql`Select * from user_details limit 200;`;
 
         break;
     }
