@@ -39,7 +39,7 @@ export default async function custom(
       res.json(result);
     } catch (error) {
       console.error(error);
-      res.status(403).json({ err: 'Error occured while adding a new food.' });
+      res.status(403).json({ err: 'Error occured while finding data.' });
     }
   }
 }

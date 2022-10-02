@@ -43,17 +43,21 @@ export default function InputBox({ setTableData }: PROPS) {
       });
     }
     if (isCorrect) {
-      const data = await fetch('/api/custom', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: qID,
-        }),
-      });
-      const res = await data.json();
-      setTableData(res);
+      try {
+        const data = await fetch('/api/custom', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            query: qID,
+          }),
+        });
+        const res = await data.json();
+        setTableData(res);
+      } catch (err) {
+        console.error(err);
+      }
     }
   };
 
