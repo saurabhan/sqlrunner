@@ -1,15 +1,17 @@
 import { PrismaClient } from '@prisma/client';
 
-declare global {
-  // eslint-disable-next-line
-  var prisma: PrismaClient;
-}
-if (process.env.NODE_ENV === 'production') {
-  prisma = new PrismaClient();
-} else {
-  if (!global.prisma) {
-    global.prisma = new PrismaClient();
+declare const global: Global & { prisma?: PrismaClient };
+
+// eslint-disable-next-line import/no-mutable-exports
+export let prisma: PrismaClient;
+
+if (typeof window === 'undefined') {
+  if (process.env.NODE_ENV === 'production') {
+    prisma = new PrismaClient();
+  } else {
+    if (!global.prisma) {
+      global.prisma = new PrismaClient();
+    }
+    prisma = global.prisma;
   }
-  prisma = global.prisma;
 }
-export default prisma;

@@ -1,8 +1,8 @@
-import { Prisma, PrismaClient } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-// import prisma from '@/db/prisma';
-const prisma = new PrismaClient();
+import { prisma } from '@/db/prisma';
+// const prisma = new PrismaClient();
 
 // POST /api/user
 // Required fields in body: name, email

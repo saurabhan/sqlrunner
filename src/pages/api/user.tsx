@@ -1,6 +1,6 @@
 import type { NextApiResponse } from 'next';
 
-import prisma from '@/db/prisma';
+import { prisma } from '@/db/prisma';
 
 // POST /api/user
 // Required fields in body: name, email
