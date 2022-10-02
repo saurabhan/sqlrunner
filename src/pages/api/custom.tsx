@@ -34,7 +34,7 @@ export default async function custom(
 
           break;
       }
-      const result = await prisma.$queryRaw`${sql}`;
+      const result = await prisma.$queryRaw(sql);
 
       res.send(result);
     } catch (error) {

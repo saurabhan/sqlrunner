@@ -32,9 +32,6 @@ export default function TableGrid({ tableData }: PROPS) {
     }
   };
 
-  if (!tableData) {
-    return <>No data</>;
-  }
   return (
     <div className="px-4 sm:px-6 lg:px-0">
       <div className="sm:flex sm:items-center">
