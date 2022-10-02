@@ -35,6 +35,6 @@ export default async function custom(
     }
     const result = await prisma.$queryRaw(sql);
 
-    res.json(result);
+    res.send(result);
   }
 }
