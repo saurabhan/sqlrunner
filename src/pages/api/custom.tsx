@@ -14,32 +14,27 @@ export default async function custom(
     const { query } = req.body;
     let sql = Prisma.sql``;
 
-    try {
-      switch (query) {
-        case 1:
-          sql = Prisma.sql`Select * from user_details where "last_name" = "john";`;
-          break;
-        case 2:
-          sql = Prisma.sql`Select * from user_details where first_name = "john";`;
-          break;
-        case 3:
-          sql = Prisma.sql`Select * from user_details limit 5`;
-          break;
-        case 4:
-          sql = Prisma.sql`Select * from user_details order by first_name desc limit 10;`;
-          break;
+    switch (query) {
+      case 1:
+        sql = Prisma.sql`Select * from user_details where "last_name" = "john";`;
+        break;
+      case 2:
+        sql = Prisma.sql`Select * from user_details where first_name = "john";`;
+        break;
+      case 3:
+        sql = Prisma.sql`Select * from user_details limit 5`;
+        break;
+      case 4:
+        sql = Prisma.sql`Select * from user_details order by first_name desc limit 10;`;
+        break;
 
-        default:
-          sql = Prisma.sql`Select * from user_details limit 100;`;
+      default:
+        sql = Prisma.sql`Select * from user_details limit 100;`;
 
-          break;
-      }
-      const result = await prisma.$queryRaw(sql);
-
-      res.send(result);
-    } catch (error) {
-      console.error(error);
-      res.status(403).json({ err: 'Error occured while finding data.' });
+        break;
     }
+    const result = await prisma.$queryRaw(sql);
+
+    res.json(result);
   }
 }
