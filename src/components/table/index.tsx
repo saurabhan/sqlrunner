@@ -64,7 +64,7 @@ export default function TableGrid({ tableData }: PROPS) {
         >
           <thead className="bg-gray-50">
             <tr>
-              {tableData &&
+              {tableData.length > 0 &&
                 Object.keys(tableData[0] || {})?.map(
                   (header: string, index) => (
                     <th
@@ -79,7 +79,7 @@ export default function TableGrid({ tableData }: PROPS) {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
-            {tableData &&
+            {tableData.length > 0 &&
               tableData?.map((values: {}, index) => (
                 <>
                   <tr key={index}>
