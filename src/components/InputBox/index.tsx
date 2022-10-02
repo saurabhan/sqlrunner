@@ -11,8 +11,6 @@ export default function InputBox({ setTableData }: PROPS) {
   const [error, setError] = useState('');
   const [selected, setSelected] = useState<{ id: number; value: string }>();
 
-  console.log(selected);
-
   const queryArray = [
     { id: 1, value: 'SELECT * FROM user_details WHERE last_name = "john";' },
     { id: 2, value: "SELECT * FROM user_details WHERE first_name = 'john';" },
