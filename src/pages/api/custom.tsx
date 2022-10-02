@@ -29,7 +29,7 @@ export default async function custom(
         break;
 
       default:
-        sql = Prisma.sql`Select * from user_details limit 100;`;
+        sql = Prisma.sql`Select * from user_details limit 2000;`;
 
         break;
     }
