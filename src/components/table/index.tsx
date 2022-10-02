@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Dropdown from '../Dropdown';
 
 interface PROPS {
-  tableData: Object[];
+  tableData: {}[];
 }
 export default function TableGrid({ tableData }: PROPS) {
   const [selected, setSelected] = useState<{ id: number; value: string }>();
@@ -31,6 +31,10 @@ export default function TableGrid({ tableData }: PROPS) {
       doc.save('tableData.pdf');
     }
   };
+
+  if (!tableData) {
+    return <>No data</>;
+  }
   return (
     <div className="px-4 sm:px-6 lg:px-0">
       <div className="sm:flex sm:items-center">
